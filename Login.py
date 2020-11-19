@@ -9,11 +9,11 @@ def open_home_page():
 #wd.set_window_size(1920, 1080)
 open_home_page()
 
-def login():
+def login(username="Rifleman59@yandex.ru", password="password"):
     wd.find_element_by_link_text("Sign in").click()
     wd.implicitly_wait(10)
-    wd.find_element_by_name("email").send_keys("Rifleman59@yandex.ru")
-    wd.find_element_by_id("passwd").send_keys("password")
+    wd.find_element_by_name("email").send_keys(username)
+    wd.find_element_by_id("passwd").send_keys(password)
     wd.find_element_by_id("SubmitLogin").click()
     wd.implicitly_wait(10)
     wd.find_element_by_link_text("Sign out")
@@ -27,9 +27,9 @@ def add_to_chart_after_login():
     wd.find_element_by_class_name("icon-th-list").click()
 
     def list_of_goods():
-        find_list_of_goods = wd.find_elements_by_tag_name("data-id-product")
-        #dress_list = ["find_list_of_goods"]
-        print(find_list_of_goods)
+        find_list_of_goods = wd.find_element_by_link_text("Add to cart")
+        dress_list = [find_list_of_goods]
+        print(dress_list)
     list_of_goods()
 
 add_to_chart_after_login()
