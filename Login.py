@@ -50,4 +50,5 @@ delete_goods_from_chart()
 # dress_list = [find_list_of_goods]
 # print(dress_list)
 # list_of_goods()
+wd.implicitly_wait(10)
 wd.quit()
