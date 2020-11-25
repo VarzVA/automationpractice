@@ -1,10 +1,17 @@
-from selenium import webdriver
+from application import Application
+import pytest
 
-wd = webdriver.Chrome('G:\\D\\PyProject\\Drivers\\chromedriver.exe')
+
+@pytest.fixture
+def app(request):
+    fixture = Application
+    request.addfinalizer(fixture.destroy)
+    return fixture
 
 
-def open_home_page():
-    wd.get("http://automationpractice.com/index.php")
+def open_home_page(app):
+    app = Application()
+    app.get("http://automationpractice.com/index.php")
 
 
 # wd.set_window_size(1920, 1080)
